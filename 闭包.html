@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        ul {
+            margin: 10px auto;
+        }
+
+        ul li {
+            padding: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="test">
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+        <li>我是第6个li</li>
+        <li>我是第7个li</li>
+        <li>我是第8个li</li>
+        <li>我是第9个li</li>
+        <li>我是第10个li</li>
+        <li>我是第11个li</li>
+        <li>我是第12个li</li>
+        <li>我是第13个li</li>
+        <li>我是第14个li</li>
+        <li>我是第15个li</li>
+        <li>我是第16个li</li>
+        <li>我是第17个li</li>
+        <li>我是第18个li</li>
+        <li>我是第19个li</li>
+        <li>我是第20个li</li>
+    </ul>
+</body>
+
+</html>
+<script>
+  window.onload = function () {
+    //   var lis = document.querySelectorAll('li');
+    //   for(var i=0;i<lis.length;i++){
+    //       lis[i].index = i;
+    //       lis[i].onclick = function () {
+    //           alert(this.index+1);
+    //         }
+    //   }
+
+     var lis = document.querySelectorAll('li');
+      for(var i=0;i<lis.length;i++){
+        //   接收一个形参,传递值
+          lis[i].onclick = (function (a) { 
+              return function () {
+                  alert(a);
+                }
+           }(i));
+      }
+    }
+</script>

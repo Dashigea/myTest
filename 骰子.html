@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: tomato;
+        }
+        ul {
+            margin-left: 20px;
+            list-style: none;
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000;
+            border-radius: 20px;
+            background-color: #fff;
+        }
+        li{
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background-color: black;
+        }
+        .ul1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .ul2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .ul3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .ul3 li:nth-child(1){
+            margin-left: 20px;
+            align-self: flex-start;
+        }
+        .ul3 li:nth-child(3){
+            margin-right: 20px;
+            align-self: flex-end;
+        }
+        .ul4 {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .ul4 li{
+            margin: 20px;
+        }
+        .ul5{
+            display: flex;
+            flex-wrap: wrap;
+            /* flex-direction: column; */
+            align-items: center;
+            justify-content: space-around;
+        }
+        .ul5 li{
+            margin:0 20px;
+        }
+        .ul5 li:nth-child(3){
+            margin: 0 50px;
+        }
+        .ul6 {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .ul6 li {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h4>第1个面</h4>
+    <ul class="ul1">
+        <li></li>
+    </ul>
+    <h4>第2个面</h4>
+    <ul class="ul2">
+        <li></li>
+        <li></li>
+    </ul>
+    <h4>第3个面</h4>
+    <ul class="ul3">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h4>第4个面</h4>
+    <ul class="ul4">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h4>第5个面</h4>
+    <ul class="ul5">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <h4>第6个面</h4>
+    <ul class="ul6">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>高光动画</title>
+</head>
+
+<body>
+
+	<style>
+		body {
+			background: #222;
+			text-align: center;
+		}
+
+		#phone {
+			width: 1100px;
+			margin: 0 auto;
+			display: inline-block;
+			margin: 50px;
+			font-size: 150px;
+			font-weight: bold;
+			color: rgba(255, 255, 255, 0.3);
+			background: -webkit-linear-gradient(-30deg, rgba(255, 255, 255, 0) 100px,
+			 rgba(255, 255, 255, 1) 180px, rgba(255, 255, 255, 1) 240px,
+			  rgba(255, 255, 255, 0) 300px) -300px 0 no-repeat;
+			-webkit-background-clip: text;
+		}
+	</style>
+
+
+	<div id="phone">我想你想得想睡觉</div>
+
+	<script language="javascript">
+		var ph = document.getElementById("phone");
+		var otime = null;
+		var num = -300;
+
+		function tomove() {
+
+			otime = setInterval(function () {
+				num += 10;
+				if (num == 1100) {
+					num = -300;
+					clearInterval(otime);
+				}
+				ph.style.backgroundPosition = num + "px 0px";
+
+			}, 20)
+		}
+		tomove();
+		setInterval(function () {
+			tomove();
+		}, 3000);
+	</script>
+
+</body>
+
+</html>

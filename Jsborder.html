@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            position: relative;
+            width: 186px;
+            height: 46px;
+            border: 2px solid black;
+
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 40px;
+            letter-spacing: 10px;
+            font-size: 20px;
+            z-index: 3;
+        }
+
+        .line1 {
+            position: absolute;
+            top: -10px;
+            left: 195px;
+            width: 0px;
+            height: 5px;
+            background-color: black;
+
+        }
+
+        .line2 {
+            position: absolute;
+            left: -10px;
+            top: -5px;
+            width: 5px;
+            height: 0px;
+            background-color: black;
+
+        }
+
+        .line3 {
+            position: absolute;
+            top: 50px;
+            left: -10px;
+            width: 0px;
+            height: 5px;
+            background-color: black;
+        }
+
+        .line4 {
+            position: absolute;
+            left: 192px;
+            top: 50px;
+            width: 5px;
+            height: 0px;
+            background-color: black;
+        }
+
+        /* a标签的动画效果封装  */
+
+        .ripple {
+            width: 0px;
+            height: 46px;
+            margin: 0 auto;
+            background-color: rgb(255, 0, 0);
+            opacity: .6;
+            border-radius: 0px;
+        }
+    </style>
+</head>
+<script src="lib/jquery-1.12.4.min.js"></script>
+
+<body>
+    <div class="box">
+        <div class="sbox">
+            <a href="#">点击下载</a>
+        </div>
+        <span class="line1">
+        </span>
+        <span class="line2 ">
+        </span>
+        <span class="line3">
+        </span>
+        <span class="line4">
+        </span>
+        <div class="ripple">
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        //鼠标移入,box内部颜色填充动画
+        $('.sbox').mouseenter(function () {
+            $('.ripple').css("display", 'block');
+            $('.ripple').stop().animate({
+                width: 186
+            });
+        })
+        //鼠标移出,box内部颜色消失
+        $(".sbox").mouseleave(function () {
+            $('.ripple').css({
+                width: 0,
+                display: 'none'
+            });
+            //阻止动画执行 stop();
+            $('.ripple').stop();
+        })
+
+        function go1() {
+            $('.line1').animate({
+                left: -10,
+                width: 205
+            }, 1000, function () {
+                $(".line1").animate({
+                    width: 0,
+                }, 1000, function () {
+                    $(".line1").css({
+                        left: 195
+                    })
+                })
+            })
+        }
+        go1();
+
+        function go2() {
+            $('.line2').animate({
+                height: 55,
+            }, 400, function () {
+                $(".line2").animate({
+                    height: 0,
+                    top: 50
+                }, 1000, function () {
+                    $(".line2").css({
+                        top: -5
+                    })
+                })
+            })
+        }
+
+        function go3() {
+            $(".line3").animate({
+                width: 205,
+            }, 1000, function () {
+                $(".line3").animate({
+                    width: 0,
+                    left: 195
+                }, 1000, function () {
+                    $(".line3").css({
+                        left: -10
+                    })
+                })
+            })
+        }
+        go3();
+
+        function go4() {
+            $(".line4").animate({
+                height: 60,
+                top: -10
+            }, 400, function () {
+                $(".line4").animate({
+                    height: 0
+                }, 1000, function () {
+                    $(".line4").css({
+                        top: 50
+                    })
+                })
+            })
+        }
+
+        //设置定时器循环!
+        setInterval(function () {
+            // 上下动画
+            go1();
+            go3();
+        }, 2400);
+        setTimeout(function () {
+            // 左右动画延时2400ms
+            go2();
+            go4();
+            setInterval(function () {
+                go2();
+                go4();
+            }, 2400)
+        }, 2000)
+
+    })
+</script>
+
+</html>

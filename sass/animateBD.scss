@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    box-sizing: border-box;
+}
+
+.box {
+    height: 80px;
+    width: 200px;
+    border: 3px solid #000;
+    margin: 150px auto;
+    position: relative;
+    span {
+        position: absolute;
+        background-color: gold;
+    }
+    .top {
+        width: 0%;
+        height: 10px;
+        right: -20px;
+        top: -20px;
+        animation: Top 2s infinite;
+    }
+    .left {
+        width: 10px;
+        height: 0%;
+        top: -20px;
+        left: -20px;
+        animation: Left 2s 1s infinite;
+    }
+    .bottom {
+        width: 0%;
+        height: 12px;
+        left: -20px;
+        bottom: -20px;
+        animation: Bottom 2s infinite;
+    }
+    .right {
+        width: 10px;
+        height: 0%;
+        right: -20px;
+        bottom: -20px;
+        animation: Right 2s .9s infinite;
+    } // 动画
+    @keyframes Top {
+        // 如果50%变化120%,动画还没走完 left就已经-20px
+       30%{
+           width: 120%;
+       }
+       100%{
+           left: -20px;
+       }
+       
+    }
+
+    @keyframes Right{
+        30%{
+            // 这里的高度是140%;
+            height: 140%;
+        }
+        100%{
+           top: -20px;
+        }
+    }
+    @keyframes Left {
+        30%{
+            height: 140%;
+        }
+        100%{
+            from{
+                top:-20px;
+            }
+            to{
+                bottom: -20px;
+            }
+        }
+    }
+    @keyframes Bottom1 {
+       
+        50%{
+            width: 120%;
+            right: 240px;
+        }
+    }
+}
